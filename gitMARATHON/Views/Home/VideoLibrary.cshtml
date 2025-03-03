@@ -1,0 +1,61 @@
+﻿@model IEnumerable<gitMARATHON.Models.Lecture>
+
+@{
+    ViewData["Title"] = "Відеотека";
+}
+
+<link rel="stylesheet" href="~/css/site.css" />
+<script defer src="~/js/site.js"></script>
+
+<header class="header">
+    <nav class="nav-container">
+        <a href="/" class="logo">
+            <i class="fab fa-github"></i>
+            GitHub Марафон
+        </a>
+        <div class="nav-links">
+            <a href="/" class="nav-link">Головна</a>
+            <a href="/Home/Details" class="nav-link">Про курс</a>
+            <a href="/Home/Speakers" class="nav-link">Спікери</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <h1>Відеотека</h1>
+
+    @if (!Model.Any())
+    {
+        <div class="coming-soon">
+            <img src="https://i.pinimg.com/originals/c0/10/bc/c010bc675a8ce64d9a541657a9171b6d.gif" alt="Котик грається з клубком">
+            <h2>Coming Soon!!!</h2>
+        </div>
+    }
+    else
+    {
+        <div id="video-gallery" class="video-gallery">
+            @foreach (var title in Model.Select((value, index) => new { value, index }))
+            {
+                <div class="video-placeholder">
+                    <img src="https://i.pinimg.com/originals/c0/10/bc/c010bc675a8ce64d9a541657a9171b6d.gif" alt="Котик грається з клубком">
+                    <h3>@title.value.Title</h3>  <!-- Тут можете замінити Title на іншу властивість об'єкта Lecture -->
+                    <div class="task-placeholder" onclick="expandTask(this)">
+                        <h3>// Практичне @(title.index + 1)</h3>
+                        <p>/* Завдання буде додано пізніше */</p>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</main>
+
+<script>
+    function expandTask(element) {
+        if (element.classList.contains("expanded")) {
+            element.classList.remove("expanded");
+        } else {
+            document.querySelectorAll(".task-placeholder").forEach(el => el.classList.remove("expanded"));
+            element.classList.add("expanded");
+        }
+    }
+</script>

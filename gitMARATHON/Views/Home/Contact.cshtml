@@ -1,0 +1,82 @@
+﻿@model gitMARATHON.Models.ChatViewModel
+
+@{
+    ViewData["Title"] = "Спільнота";
+}
+
+<link rel="stylesheet" href="~/css/site.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script defer src="~/js/site.js"></script>
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Передача isAdmin через атрибут data -->
+<div id="is-admin" data-value="@User.IsInRole("Admin").ToString().ToLower()"></div>
+
+<div class="chat-container">
+    <div id="messages-container" class="messages">
+        @foreach (var message in Model.Messages)
+        {
+            <div class="message" id="message-@message.Id">
+                <strong>@message.Username:</strong> @message.Text
+                @if (User.IsInRole("Admin"))
+                {
+                    <button class="btn btn-danger" onclick="deleteMessage('@message.Id')">Видалити</button>
+                }
+            </div>
+        }
+    </div>
+
+    <textarea id="message-text" placeholder="Напишіть своє повідомлення..." rows="3"></textarea>
+    <button id="send-message-btn" class="btn btn-primary">Відправити</button>
+</div>
+
+<style>
+    .chat-container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #messages-container {
+        flex-grow: 1;
+        overflow-y: auto;
+        margin-bottom: 10px;
+    }
+
+    .message {
+        background-color: #e0e0e0;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        word-wrap: break-word;
+    }
+
+    #message-text {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    #send-message-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        #send-message-btn:hover {
+            background-color: #45a049;
+        }
+</style>

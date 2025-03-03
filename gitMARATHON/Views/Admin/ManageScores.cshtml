@@ -1,0 +1,26 @@
+﻿@model IEnumerable<gitMARATHON.Models.Score>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Користувач</th>
+            <th>Лекція</th>
+            <th>Оцінка</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var score in Model)
+        {
+            <tr>
+                <td>@score.UserId</td>
+                <td>@(score.Lecture != null ? score.Lecture.Title : "Невідома лекція")</td>
+                <td>@score.Points</td>
+                <td>
+                    <a asp-action="EditScore" asp-route-id="@score.Id" class="btn btn-warning">Редагувати</a>
+                    <a asp-action="DeleteScore" asp-route-id="@score.Id" class="btn btn-danger">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

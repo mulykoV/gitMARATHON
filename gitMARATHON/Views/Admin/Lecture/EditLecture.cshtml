@@ -1,0 +1,25 @@
+﻿@model gitMARATHON.Models.Lecture
+
+@{
+    ViewData["Title"] = "Редагувати лекцію";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Редагувати лекцію</h2>
+
+    <form asp-action="EditLecture" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label class="form-label">Назва лекції</label>
+            <input asp-for="Title" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Опис лекції</label>
+            <textarea asp-for="Description" class="form-control" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Зберегти зміни</button>
+    </form>
+</div>

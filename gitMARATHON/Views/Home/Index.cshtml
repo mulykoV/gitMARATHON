@@ -1,0 +1,122 @@
+﻿@{
+    ViewData["Title"] = "GitHub Марафон";
+}
+
+<link rel="stylesheet" href="~/css/site.css" />
+<script defer src="~/js/site.js"></script>
+
+<section class="hero">
+    <div class="hero-content" data-aos="fade-up">
+        <h1>Опануйте GitHub за 6 днів</h1>
+        <p class="hero-text">
+            Інтенсивний онлайн-марафон з вивчення Git та GitHub
+            від провідних експертів галузі
+        </p>
+        <div class="hero-buttons">
+            <a asp-controller="Account" asp-action="Register" class="btn btn-cta">
+                <i class="fas fa-rocket"></i> Приєднатися зараз
+            </a>
+            <button class="btn-outline">
+                <i class="fas fa-play" onclick="window.location.href='#lessons'"></i> Дивитись демо
+            </button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Студентів</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">6</span>
+                <span class="stat-label">Днів навчання</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Практики</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Гра "Коміт-челендж" у гарному оформленні -->
+    <div class="hero-image game-container" data-aos="fade-left">
+        <div id="commit-game" class="github-frame">
+            <h3>Коміт-челендж</h3>
+            <p>Скільки комітів ти зробиш за 10 секунд?</p>
+            <button id="commit-btn" class="github-btn">🚀 Зробити коміт</button>
+            <p id="commit-count">Комітів: 0</p>
+            <p id="timer">Час: 10</p>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <h2 class="section-title" data-aos="fade-up">Про марафон</h2>
+    <div class="features-grid">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <a href="@Url.Action("Tasks", "Home")" class="feature-link">
+                <i class="fas fa-code feature-icon"></i>
+                <h3>Практичні завдання</h3>
+                <p>Реальні проекти та завдання для закріплення знань</p>
+            </a>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <a href="@Url.Action("VideoLibrary", "Home")" class="feature-link">
+                <i class="fas fa-video feature-icon"></i>
+                <h3>Відео-уроки</h3>
+                <p>Детальні пояснення від професіоналів</p>
+            </a>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+            <a href="@Url.Action("Contact", "Home")" class="feature-link">
+                <i class="fas fa-users feature-icon"></i>
+                <h3>Спільнота</h3>
+                <p>Підтримка та спілкування з однодумцями</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section id="lessons" class="cta-section" style="background: linear-gradient(135deg, #0366d6, #2ea44f); color: white; padding: 80px 20px; text-align: center; border-radius: 20px;">
+    <div class="cta-content" data-aos="fade-up" style="display: flex; align-items: center; justify-content: center; flex-direction: column; width: 100%;">
+        <h2 style="font-size: 2.5rem; font-weight: bold; text-shadow: 2px 2px 5px rgba(0,0,0,0.2);">Готові почати свій шлях у Git</span>?</h2>
+        <div class="lessons-container" style="display: flex; flex-direction: column; gap: 20px; text-align: left; width: 100%; max-width: 1200px;">
+            <div class="lesson-item" style="display: flex; align-items: center; position: relative; padding: 20px; background: #f6f8fa; border-radius: 10px; width: 100%;">
+                <div style="background: #24292e; color: white; font-size: 1.5rem; font-weight: bold; padding: 15px 20px; border-radius: 5px;">01</div>
+                <div style="background: black; color: white; padding: 10px 15px; margin-left: 10px; border-radius: 5px;">24.02</div>
+                <div style="background: white; color: black; padding: 10px 15px; margin-left: 5px; border-radius: 5px;">19:30</div>
+                <div style="margin-left: 20px; font-weight: bold; flex-grow: 1; font-size: 1.2rem; color: #24292e;">Вступ до Git та GitHub</div>
+            </div>
+            <div class="lesson-item" style="display: flex; align-items: center; position: relative; padding: 20px; background: #f6f8fa; border-radius: 10px; width: 100%;">
+                <div style="background: #24292e; color: white; font-size: 1.5rem; font-weight: bold; padding: 15px 20px; border-radius: 5px;">02</div>
+                <div style="background: black; color: white; padding: 10px 15px; margin-left: 10px; border-radius: 5px;">27.02</div>
+                <div style="background: white; color: black; padding: 10px 15px; margin-left: 5px; border-radius: 5px;">19:30</div>
+                <div style="margin-left: 20px; font-weight: bold; flex-grow: 1; font-size: 1.2rem; color: #24292e;">Гілки, злиття та робота з віддаленими репозиторіями</div>
+            </div>
+            <div class="lesson-item" style="display: flex; align-items: center; position: relative; padding: 20px; background: #f6f8fa; border-radius: 10px; width: 100%;">
+                <div style="background: #24292e; color: white; font-size: 1.5rem; font-weight: bold; padding: 15px 20px; border-radius: 5px;">03</div>
+                <div style="background: black; color: white; padding: 10px 15px; margin-left: 10px; border-radius: 5px;">03.03</div>
+                <div style="background: white; color: black; padding: 10px 15px; margin-left: 5px; border-radius: 5px;">19:30</div>
+                <div style="margin-left: 20px; font-weight: bold; flex-grow: 1; font-size: 1.2rem; color: #24292e;">Спільна робота через GitHub: Pull Requests, Issues та Code Review </div>
+            </div>
+            <div class="lesson-item" style="display: flex; align-items: center; position: relative; padding: 20px; background: #f6f8fa; border-radius: 10px; width: 100%;">
+                <div style="background: #24292e; color: white; font-size: 1.5rem; font-weight: bold; padding: 15px 20px; border-radius: 5px;">04</div>
+                <div style="background: black; color: white; padding: 10px 15px; margin-left: 10px; border-radius: 5px;">06.03</div>
+                <div style="background: white; color: black; padding: 10px 15px; margin-left: 5px; border-radius: 5px;">19:30</div>
+                <div style="margin-left: 20px; font-weight: bold; flex-grow: 1; font-size: 1.2rem; color: #24292e;">GitHub Actions: автоматизація процесів</div>
+
+            </div>
+            <div class="lesson-item" style="display: flex; align-items: center; position: relative; padding: 20px; background: #f6f8fa; border-radius: 10px; width: 100%;">
+                <div style="background: #24292e; color: white; font-size: 1.5rem; font-weight: bold; padding: 15px 20px; border-radius: 5px;">05</div>
+                <div style="background: black; color: white; padding: 10px 15px; margin-left: 10px; border-radius: 5px;">10.03</div>
+                <div style="background: white; color: black; padding: 10px 15px; margin-left: 5px; border-radius: 5px;">19:30</div>
+                <div style="margin-left: 20px; font-weight: bold; flex-grow: 1; font-size: 1.2rem; color: #24292e;">Продвинуті можливості Git: Rebase, Stash, Reset, Cherry-pick</div>
+
+            </div>
+            <div class="lesson-item" style="display: flex; align-items: center; position: relative; padding: 20px; background: #f6f8fa; border-radius: 10px; width: 100%;">
+                <div style="background: #24292e; color: white; font-size: 1.5rem; font-weight: bold; padding: 15px 20px; border-radius: 5px;">06</div>
+                <div style="background: black; color: white; padding: 10px 15px; margin-left: 10px; border-radius: 5px;">13.03</div>
+                <div style="background: white; color: black; padding: 10px 15px; margin-left: 5px; border-radius: 5px;">19:30</div>
+                <div style="margin-left: 20px; font-weight: bold; flex-grow: 1; font-size: 1.2rem; color: #24292e;">Кращі практики роботи з Git та GitHub</div>
+            </div>
+        </div>
+</section>

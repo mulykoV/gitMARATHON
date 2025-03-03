@@ -1,0 +1,25 @@
+﻿@model gitMARATHON.Models.Task
+
+@{
+    ViewData["Title"] = "Редагувати завдання";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Редагувати завдання</h2>
+
+    <form asp-action="EditTask" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label class="form-label">Назва завдання</label>
+            <input asp-for="Name" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Опис завдання</label>
+            <textarea asp-for="Description" class="form-control" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Зберегти зміни</button>
+    </form>
+</div>

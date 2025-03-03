@@ -1,0 +1,31 @@
+﻿@model IEnumerable<gitMARATHON.Models.Task>
+
+@{
+    ViewData["Title"] = "Управління завданнями";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Управління завданнями</h2>
+
+    <div class="text-end mb-3">
+        <a asp-action="CreateTask" class="btn btn-success">Додати нове завдання</a>
+    </div>
+
+    <div class="row">
+        @foreach (var task in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm p-3 text-center">
+                    <h5>@task.Name</h5>
+                    <p>@task.Description</p>
+                    <p class="text-muted">Створено: @task.CreatedAt.ToString("dd.MM.yyyy")</p>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="EditTask" asp-route-id="@task.Id" class="btn btn-warning btn-sm">Редагувати</a>
+                        <a asp-action="DeleteTask" asp-route-id="@task.Id" class="btn btn-danger btn-sm">Видалити</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

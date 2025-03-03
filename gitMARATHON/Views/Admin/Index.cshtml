@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="#">Admin Panel</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a asp-controller="Admin" asp-action="ManageScores" class="nav-link">Журнал оцінок</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Admin" asp-action="ManageTasks" class="nav-link">Перевірка завдань</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Admin" asp-action="ManageLectures" class="nav-link">Лекції</a> <!-- Замінили на Lecture -->
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Home" asp-action="Tasks" class="nav-link">Завдання</a> <!-- Замінили на Task -->
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Account" asp-action="Logout" class="nav-link text-danger">Вийти</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center text-primary">Панель адміністратора</h2>
+        <p class="text-center">Вітаємо, ви спікер цього марафону!</p>
+
+        <div class="row mt-4 g-4">
+            <div class="col-md-6">
+                <div class="card shadow-sm p-3 text-center">
+                    <h4 class="text-success">Журнал оцінок</h4>
+                    <p>Редагуйте оцінки учасників.</p>
+                    <a asp-controller="Admin" asp-action="ManageScores" class="btn btn-success w-100">Редагувати журнал</a>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow-sm p-3 text-center">
+                    <h4 class="text-warning">Перевірка завдань</h4>
+                    <p>Переглядайте та перевіряйте завдання учасників.</p>
+                    <a asp-controller="Admin" asp-action="ManageUsers" class="btn btn-warning w-100">Перевірити завдання</a>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow-sm p-3 text-center">
+                    <h4 class="text-primary">Лекції</h4>
+                    <p>Переглядайте та редагуйте лекції.</p>
+                    <a asp-controller="Lecture" asp-action="Index" class="btn btn-primary w-100">Управління лекціями</a> <!-- Замінили на Lecture -->
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow-sm p-3 text-center">
+                    <h4 class="text-info">Завдання</h4>
+                    <p>Переглядайте та редагуйте завдання.</p>
+                    <a asp-controller="Task" asp-action="Index" class="btn btn-info w-100">Управління завданнями</a> <!-- Замінили на Task -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

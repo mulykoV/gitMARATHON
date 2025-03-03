@@ -1,0 +1,15 @@
+﻿@model gitMARATHON.Models.Score
+
+@{
+    ViewData["Title"] = "Edit Score";
+}
+
+<h2>Edit Score</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Points">Points</label>
+        <input type="number" id="Points" name="Points" class="form-control" value="@Model.Points" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

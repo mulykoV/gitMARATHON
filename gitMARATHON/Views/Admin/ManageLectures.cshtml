@@ -1,0 +1,30 @@
+﻿@model IEnumerable<gitMARATHON.Models.Lecture>
+
+@{
+    ViewData["Title"] = "Управління лекціями";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Управління лекціями</h2>
+
+    <div class="text-end mb-3">
+        <a asp-action="CreateLecture" class="btn btn-success">Додати нову лекцію</a>
+    </div>
+
+    <div class="row">
+        @foreach (var lecture in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm p-3 text-center">
+                    <h5>@lecture.Title</h5>
+                    <p>@lecture.Description</p>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="EditLecture" asp-route-id="@lecture.Id" class="btn btn-warning btn-sm">Редагувати</a>
+                        <a asp-action="DeleteLecture" asp-route-id="@lecture.Id" class="btn btn-danger btn-sm">Видалити</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

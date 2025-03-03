@@ -1,0 +1,19 @@
+﻿@model gitMARATHON.Models.PetProject
+
+@{
+    ViewData["Title"] = "Edit Pet Project";
+}
+
+<h2>Edit Pet Project</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Name">Project Name</label>
+        <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required />
+    </div>
+    <div class="form-group">
+        <label for="GitHubLink">GitHub Link</label>
+        <input type="url" id="GitHubLink" name="GitHubLink" class="form-control" value="@Model.GitHubLink" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

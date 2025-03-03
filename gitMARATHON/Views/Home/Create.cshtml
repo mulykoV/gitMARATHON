@@ -1,0 +1,16 @@
+﻿@model gitMARATHON.Models.Lecture
+
+<h1>Додати нову лекцію</h1>
+
+<form asp-action="Create" method="post">
+    <label>Назва</label>
+    <input asp-for="Title" required />
+
+    <label>Опис</label>
+    <textarea asp-for="Description" required></textarea>
+
+    <label>Практичне завдання</label>
+    <textarea asp-for="PracticalTask"></textarea>
+
+    <button type="submit">Додати</button>
+</form>

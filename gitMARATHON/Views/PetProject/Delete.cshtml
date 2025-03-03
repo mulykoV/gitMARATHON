@@ -1,0 +1,12 @@
+﻿@model gitMARATHON.Models.PetProject
+
+@{
+    ViewData["Title"] = "Delete Pet Project";
+}
+
+<h2>Are you sure you want to delete the project "@Model.Name"?</h2>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index", "PetProject")" class="btn btn-secondary">Cancel</a>
+</form>

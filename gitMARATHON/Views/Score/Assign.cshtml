@@ -1,0 +1,19 @@
+﻿@model gitMARATHON.Models.Score
+
+@{
+    ViewData["Title"] = "Assign Score";
+}
+
+<h2>Assign Score</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="UserId">User</label>
+        <input type="text" id="UserId" name="UserId" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="Points">Points</label>
+        <input type="number" id="Points" name="Points" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Assign</button>
+</form>

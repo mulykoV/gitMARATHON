@@ -1,0 +1,42 @@
+﻿@{
+    var tasks = Model as List<gitMARATHON.Models.Task>; // Приводимо Model до типу List<Task>
+    var isAdmin = User.IsInRole("Admin");
+}
+
+<div class="container mt-5">
+    @if (tasks == null || !tasks.Any()) // Якщо немає завдань
+    {
+        <div class="text-center">
+            <img src="https://i.pinimg.com/originals/c0/10/bc/c010bc675a8ce64d9a541657a9171b6d.gif" alt="Coming Soon" class="img-fluid" style="max-width: 300px;" />
+            <h3>Coming Soon...</h3>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var task in tasks)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@task.Name</h5>
+                            <p class="card-text">@task.Description</p>
+
+                            @if (isAdmin)
+                            {
+                                <!-- Якщо адмін, показуємо кнопки редагування та додавання -->
+                                <a href="@Url.Action("Edit", "Tasks", new { id = task.Id })" class="btn btn-warning">Редагувати</a>
+                                <a href="@Url.Action("Delete", "Tasks", new { id = task.Id })" class="btn btn-danger">Видалити</a>
+                            }
+                            else
+                            {
+                                <!-- Якщо користувач, тільки кнопка перегляду -->
+                                <a href="@Url.Action("View", "Tasks", new { id = task.Id })" class="btn btn-primary">Переглянути</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

@@ -1,0 +1,687 @@
+:root {
+    --primary-color: #0366d6;
+    --secondary-color: #2ea44f;
+    --background-color: #ffffff;
+    --text-color: #24292e;
+    --accent-color: #f6f8fa;
+    --error-color: #cb2431;
+    --success-color: #28a745;
+    --gradient-primary: linear-gradient(135deg, #0366d6 0%, #2ea44f 100%);
+}
+
+/* Загальні стилі */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* Навігація */
+.header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+    .nav-link:hover {
+        color: var(--primary-color);
+    }
+
+    .nav-link.active {
+        color: var(--primary-color);
+    }
+
+/* Герой секція */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, rgba(3, 102, 214, 0.1) 0%, rgba(46, 164, 79, 0.1) 100%);
+}
+
+.hero-content {
+    max-width: 600px;
+    margin-right: 4rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.btn-cta {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .btn-cta:hover {
+        transform: translateY(-2px);
+    }
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-auth {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+    .btn-auth:hover {
+        background-color: #0056b3;
+    }
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+    .video-gallery iframe {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+/* Статистика */
+.hero-stats {
+    display: flex;
+    gap: 3rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    color: #666;
+}
+
+/* Картки особливостей */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Спікери */
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+}
+
+.speaker-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.speaker-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+/* Футер */
+.footer {
+    background: var(--accent-color);
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+    .social-links a {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+/* Модальні вікна */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 2rem auto;
+    position: relative;
+}
+
+/* Адаптивний дизайн */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+/* Мобільне меню */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Форми */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #e1e4e8;
+        border-radius: 6px;
+        font-size: 1rem;
+    }
+
+/* Сповіщення */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+    .notification.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .notification.success {
+        background: var(--success-color);
+        color: white;
+    }
+
+    .notification.error {
+        background: var(--error-color);
+        color: white;
+    }
+
+/* Адаптивний дизайн */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        flex-direction: column;
+        align-items: stretch;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+    .nav-link {
+        padding: 0.8rem 0;
+        text-align: center;
+    }
+
+    .auth-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+        .auth-buttons button {
+            width: 100%;
+        }
+
+    .modal-content {
+        width: 90%;
+        margin: 1rem auto;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #fff;
+        border-bottom: 2px solid #ccc;
+    }
+
+    .navbar-collapse {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+        .navbar-nav .nav-item {
+            list-style: none;
+        }
+
+            .navbar-nav .nav-item .nav-link {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                padding: 8px 16px;
+                color: #333;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+            }
+
+                .navbar-nav .nav-item .nav-link:hover {
+                    background-color: #f0f0f0;
+                }
+
+    .auth-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+        .auth-buttons a {
+            color: #333;
+            background-color: #fff;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #333;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+            .auth-buttons a:hover {
+                background-color: #333;
+                color: #fff;
+            }
+
+    .game-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #commit-game p {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    #commit-btn {
+        background: #ff4f5a;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        #commit-btn:hover {
+            background: #e04450;
+        }
+
+    .game-container {
+        background: #f6f8fa;
+        padding: 20px;
+        border-radius: 12px;
+        border: 2px solid #d1d5da;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 280px;
+        margin-left: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    #commit-game h3 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    #commit-game p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    .github-btn {
+        background: #24292e;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .github-btn:hover {
+            background: #0366d6;
+        }
+
+        .github-btn:active {
+            background: #005cc5;
+            transform: scale(0.98);
+        }
+
+    .github-logo {
+        width: 100px; /* Обмеження розміру логотипа */
+        display: block;
+        margin: 0 auto 10px;
+    }
+
+    .github-frame {
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 20px;
+        background: #0d1117; /* Темний фон у стилі GitHub */
+        color: white;
+        text-align: center;
+        max-width: 300px; /* Щоб гра не займала багато місця */
+        margin: auto;
+    }
+
+    .coming-soon {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+        .coming-soon img {
+            width: 200px;
+            height: auto;
+        }
+
+        .coming-soon h2 {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+    .card-body {
+        background: linear-gradient(to bottom, #007acc, #005f99);
+        color: white;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        border-radius: 5px;
+    }
+
+    .feature-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        padding: 10px;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+        .feature-link:hover {
+            background-color: #f0f0f0;
+            border-color: #007bff;
+        }
+
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .chat-box {
+        width: 100%;
+        height: 300px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        overflow-y: scroll;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #f9f9f9;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        resize: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+
+
+
+}

@@ -1,0 +1,140 @@
+﻿@{
+    Layout = "_Layout";
+}
+<style>
+    .interactive-balls {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        background: url('@Url.Content("~/images/balls.png")') no-repeat center center;
+        background-size: cover;
+        overflow: hidden;
+        transition: background-size 0.3s ease-in-out;
+    }
+
+        .interactive-balls:hover {
+            background-size: 110%;
+        }
+</style>
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Марафон</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/css/site.css")">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <i class="fab fa-github"></i>
+                GitHub Марафон
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link active">Головна</a>
+                <a href="@Url.Action("VideoLibrary", "Home")" class="nav-link">Відеотека</a>
+                <a href="#about" class="nav-link">Про курс</a>
+                <a href="#speakers" class="nav-link">Спікери</a>
+                <button id="loginBtn" class="btn-auth">
+                    <i class="fas fa-sign-in-alt"></i> <a href="@Url.Action("Login", "Account")">Увійти</a>
+                </button>
+                <button id="registerBtn" class="btn-auth">
+                    <i class="fas fa-user-plus"></i> <a href="@Url.Action("Register", "Account")">Реєстрація</a>
+                </button>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Опануйте GitHub за 6 днів</h1>
+                <p class="hero-text">
+                    Інтенсивний онлайн-марафон з вивчення Git та GitHub
+                    від провідних експертів галузі
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-cta">
+                        <i class="fas fa-rocket"></i> Приєднатися зараз
+                    </button>
+                    <button class="btn-outline">
+                        <i class="fas fa-play"></i> Дивитись демо
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Студентів</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Днів навчання</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Практики</span>
+                    </div>
+                </div>
+            </div>
+            <section id="about" class="about">
+                <h2 class="section-title" data-aos="fade-up">Про марафон</h2>
+                <div class="interactive-balls" data-aos="fade-up"></div>
+            </section>
+        </section>
+
+        <!-- Секція "Про курс" -->
+        <section id="about" class="about" style="background: linear-gradient(135deg, #f3f4f6, #ffffff); padding: 60px 20px; border-radius: 20px;">
+            <h2 class="section-title" data-aos="fade-up" style="color: #333; text-shadow: 1px 1px 3px rgba(0,0,0,0.1);">Про марафон</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100" style="background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 10px;">
+                    <i class="fas fa-code feature-icon"></i>
+                    <h3>Практичні завдання</h3>
+                    <p>Реальні проекти та завдання для закріплення знань</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200" style="background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 10px;">
+                    <i class="fas fa-video feature-icon"></i>
+                    <h3>Відео-уроки</h3>
+                    <p>Детальні пояснення від професіоналів</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300" style="background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 10px;">
+                    <i class="fas fa-users feature-icon"></i>
+                    <h3>Спільнота</h3>
+                    <p>Підтримка та спілкування з однодумцями</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секція спікерів -->
+        <section id="speakers" class="speakers" style="background: #f6f8fa; color: #24292e; padding: 80px 20px; border-radius: 20px; text-align: center; font-family: 'Inter', sans-serif;">
+            <h2 class="section-title" data-aos="fade-up" style="color: #0366d6; font-weight: 700; font-size: 2.8rem; letter-spacing: 1px; text-transform: uppercase;">Наші спікери</h2>
+            <div class="speakers-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;">
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="100" style="background: white; padding: 30px; border-radius: 15px; max-width: 300px; text-align: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                    <div class="speaker-image" style="margin-bottom: 20px;">
+                        <img src="@Url.Content("~/images/speaker1.jpg")" alt="Спікер 1" style="border-radius: 50%; border: 4px solid #0366d6; width: 120px; height: 120px;">
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; color: #0366d6; margin-bottom: 10px;">Олександр Петренко</h3>
+                    <p style="font-size: 1rem; color: #777;">Senior DevOps Engineer</p>
+                    <div class="social-links" style="margin-top: 15px;">
+                        <a href="#" style="color: #0366d6; margin-right: 10px; font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: #0366d6; font-size: 1.2rem;"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer content here -->
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

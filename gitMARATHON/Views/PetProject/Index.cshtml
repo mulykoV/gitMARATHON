@@ -1,0 +1,53 @@
+﻿@model IEnumerable<gitMARATHON.Models.PetProject>
+
+@{
+    ViewData["Title"] = "My Pet Projects";
+}
+
+<h2>My Pet Projects</h2>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>GitHub Link</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var project in Model)
+            {
+                <tr>
+                    <td>@project.Name</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(project.GitHubLink))
+                        {
+                            <a href="@project.GitHubLink" target="_blank">View GitHub</a>
+                        }
+                        else
+                        {
+                            <span>Coming Soon</span>
+                        }
+                    </td>
+                    <td>@(project.IsUnlocked ? "Unlocked" : "Locked")</td>
+                    <td>
+                        @if (project.IsUnlocked || User.IsInRole("Admin"))
+                        {
+                            <a href="@Url.Action("Edit", "PetProject", new { id = project.Id })">Edit</a>
+                    < a href = "@Url.Action("Delete", "PetProject", new { id = project.Id })" onclick = "return confirm('Are you sure you want to delete this project?')" > Delete </ a >
+                       }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No projects available.</p>
+}
+
+<a href="@Url.Action("Create", "PetProject")" class="btn btn-primary">Create New Project</a>
